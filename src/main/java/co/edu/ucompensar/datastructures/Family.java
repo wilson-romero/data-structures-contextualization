@@ -6,11 +6,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Value;
 
-/**
- * One family of the census: its stratum and the three bills before the subsidy.
- * Immutable; created through {@link #of} so an invalid family never exists.
- * Money is {@link BigDecimal}, so no cents are lost when amounts are added up.
- */
+/** A census family: stratum and the three bills. */
 @Value
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Family {
@@ -32,9 +28,7 @@ public class Family {
         return new Family(stratum, water, power, gas);
     }
 
-    /**
-     * Stratum 1 gets 20 % off each utility, stratum 2 gets 15 % and stratum 3 or higher 9 %.
-     */
+    /** Discount: stratum 1 → 20 %, 2 → 15 %, 3 or more → 9 %. */
     public static BigDecimal discountRate(int stratum) {
         if (stratum < 1) {
             throw new IllegalArgumentException("El estrato debe ser 1 o mayor.");
@@ -46,7 +40,7 @@ public class Family {
         };
     }
 
-    /** Amount to pay for one utility after the family's discount, rounded to cents. */
+    /** Amount to pay for a utility after the discount. */
     public BigDecimal toPay(Utility utility) {
         BigDecimal bill = switch (utility) {
             case WATER -> water;

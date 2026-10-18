@@ -4,10 +4,7 @@ import java.io.PrintStream;
 import java.util.Random;
 import lombok.experimental.UtilityClass;
 
-/**
- * Console menu for the Contextualización activity: exercise 1 (subsidies with arrays)
- * and exercise 3 (operations on a stack).
- */
+/** Console menu for exercises 1 and 3. */
 @UtilityClass
 public class Main {
 
