@@ -1,0 +1,4 @@
+target/
+*:Zone.Identifier
+.idea/
+nbproject/private/
