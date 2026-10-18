@@ -6,9 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import lombok.experimental.UtilityClass;
 
-/**
- * Console reading that asks again until the value is valid, so a typo never ends the program.
- */
+/** Console input that asks again until the value is valid. */
 @UtilityClass
 public class ConsoleInput {
 
@@ -24,7 +22,7 @@ public class ConsoleInput {
                     return value;
                 }
             } catch (NumberFormatException e) {
-                // falls through to the message below
+                // not a number: ask again
             }
             OUT.println("Valor no válido. Debe ser un número entero" + range(min, max) + ".");
         }
@@ -43,7 +41,7 @@ public class ConsoleInput {
                     return value;
                 }
             } catch (NumberFormatException e) {
-                // falls through to the message below
+                // not a number: ask again
             }
             OUT.println("Valor no válido. Debe ser un número mayor o igual a cero.");
         }

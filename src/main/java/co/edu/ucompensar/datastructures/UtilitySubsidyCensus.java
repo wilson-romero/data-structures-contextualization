@@ -5,12 +5,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Locale;
 
-/**
- * Exercise 1: family census with subsidies on public utilities.
- *
- * The families live in a one-dimensional array sized by how many families the user
- * declares; the totals are another one-dimensional array indexed by {@link Utility#ordinal()}.
- */
+/** Exercise 1: subsidy census stored in one-dimensional arrays. */
 public class UtilitySubsidyCensus {
 
     private static final Locale CO = Locale.forLanguageTag("es-CO");

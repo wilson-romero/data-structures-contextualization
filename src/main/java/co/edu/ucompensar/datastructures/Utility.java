@@ -3,9 +3,7 @@ package co.edu.ucompensar.datastructures;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-/**
- * Public utilities billed to each family, with the label shown in the report.
- */
+/** Public utilities and their label. */
 @Getter
 @RequiredArgsConstructor
 public enum Utility {

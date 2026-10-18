@@ -4,14 +4,7 @@ import java.io.PrintStream;
 import java.util.Random;
 import lombok.Getter;
 
-/**
- * Exercise 3: a stack stored in a fixed-size array (LIFO).
- *
- * Built from the guide's PrimeraPila (Figures 15 to 18): {@code top} starts at -1 and
- * points at the last element stored. On top of the guide's generar / imprimir / mostrar
- * it adds the four operations the activity asks for: search, push, update and pop.
- * Positions are counted from the base: 0 is the first element stored, {@code top} the last.
- */
+/** Exercise 3: LIFO stack on a fixed-size array, built from the guide's PrimeraPila. */
 @Getter
 public class ArrayStack {
 
@@ -44,10 +37,7 @@ public class ArrayStack {
         return top == elements.length - 1;
     }
 
-    /**
-     * Guide's {@code generar} (Figure 16): pushes {@code count} random numbers from 0 to 99,
-     * after checking that they fit.
-     */
+    /** Guide's generar: pushes count random numbers from 0 to 99. */
     public void fillRandom(int count, Random random) {
         int room = getCapacity() - getSize();
         if (count < 0 || count > room) {
@@ -58,7 +48,7 @@ public class ArrayStack {
         }
     }
 
-    /** b. Inserts on the top when there is room. O(1). */
+    /** b. Insert on the top if there is room. */
     public void push(int value) {
         if (isFull()) {
             throw new IllegalStateException("Desbordamiento: la pila está llena (" + getCapacity() + " elementos).");
@@ -67,7 +57,7 @@ public class ArrayStack {
         countParity(value, 1);
     }
 
-    /** d. Removes and returns the element on the top. O(1). */
+    /** d. Remove and return the top. */
     public int pop() {
         if (isEmpty()) {
             throw new IllegalStateException("Subdesbordamiento: la pila está vacía.");
@@ -77,10 +67,7 @@ public class ArrayStack {
         return value;
     }
 
-    /**
-     * a. Position of a value counted from the base, or -1. Walks from the top down, so with
-     * repeated values it finds the most recent one. O(n).
-     */
+    /** a. Position of a value from the base, or -1. */
     public int search(int value) {
         for (int i = top; i >= 0; i--) {
             if (elements[i] == value) {
@@ -90,7 +77,7 @@ public class ArrayStack {
         return -1;
     }
 
-    /** c. Replaces the element at a position and returns the old value. O(1). */
+    /** c. Replace the value at a position; returns the old one. */
     public int update(int position, int newValue) {
         checkPosition(position);
         int old = elements[position];
@@ -100,10 +87,7 @@ public class ArrayStack {
         return old;
     }
 
-    /**
-     * Guide's {@code imprimir} (Figure 17), top-down as a stack is read. The guide's loop
-     * {@code i < tope} leaves out the element on the top; this one includes it.
-     */
+    /** Guide's imprimir, from the top down and including the top. */
     public void print(PrintStream out) {
         if (isEmpty()) {
             out.println("La pila está vacía.");
@@ -116,7 +100,7 @@ public class ArrayStack {
         out.println("El tope de la pila es " + top + ". El máximo de la pila es " + getCapacity() + ".");
     }
 
-    /** Guide's {@code mostrar} (Figure 18). */
+    /** Guide's mostrar: even and odd counts. */
     public void printParity(PrintStream out) {
         out.println("El número de elementos pares es: " + evenCount);
         out.println("El número de elementos impares es: " + oddCount);
