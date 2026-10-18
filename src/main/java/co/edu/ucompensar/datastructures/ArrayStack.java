@@ -123,6 +123,9 @@ public class ArrayStack {
     }
 
     private void checkPosition(int position) {
+        if (isEmpty()) {
+            throw new IllegalStateException("La pila está vacía: no hay posiciones.");
+        }
         if (position < 0 || position > top) {
             throw new IndexOutOfBoundsException("La posición " + position + " no existe; las válidas van de 0 a " + top + ".");
         }

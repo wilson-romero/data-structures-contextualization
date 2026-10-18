@@ -16,7 +16,7 @@ Requiere JDK 21 o superior (NetBeans 31 trabaja con JDK 21, 25 y 27) y Maven.
 
 ```bash
 mvn package
-java -jar target/data-structures-contextualization-1.0.0.jar
+java -jar target/data-structures-contextualization-1.0.1.jar
 ```
 
 En NetBeans: *File → Open Project* sobre esta carpeta y *Run*.
