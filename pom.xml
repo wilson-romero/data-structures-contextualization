@@ -6,7 +6,7 @@
 
     <groupId>co.edu.ucompensar</groupId>
     <artifactId>data-structures-contextualization</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
     <name>Estructura de Datos - Contextualización</name>
 
