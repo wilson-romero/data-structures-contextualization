@@ -20,6 +20,7 @@ public class Family {
     BigDecimal power;
     BigDecimal gas;
 
+    /** Creates a validated family. */
     public static Family of(int stratum, BigDecimal water, BigDecimal power, BigDecimal gas) {
         discountRate(stratum); // rejects a stratum below 1
         if (water.signum() < 0 || power.signum() < 0 || gas.signum() < 0) {
@@ -29,7 +30,7 @@ public class Family {
     }
 
     /** Discount: stratum 1 → 20 %, 2 → 15 %, 3 or more → 9 %. */
-    public static BigDecimal discountRate(int stratum) {
+    private static BigDecimal discountRate(int stratum) {
         if (stratum < 1) {
             throw new IllegalArgumentException("El estrato debe ser 1 o mayor.");
         }
