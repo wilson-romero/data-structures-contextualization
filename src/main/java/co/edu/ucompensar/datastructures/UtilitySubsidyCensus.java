@@ -19,10 +19,6 @@ public class UtilitySubsidyCensus {
         families = new Family[size];
     }
 
-    public int size() {
-        return families.length;
-    }
-
     public void setFamily(int index, Family family) {
         families[index] = family;
     }

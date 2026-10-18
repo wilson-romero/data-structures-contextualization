@@ -5,11 +5,10 @@ import java.util.Random;
 import lombok.Getter;
 
 /** Exercise 3: LIFO stack on a fixed-size array, built from the guide's PrimeraPila. */
-@Getter
 public class ArrayStack {
 
-    @Getter(lombok.AccessLevel.NONE)
     private final int[] elements;
+    @Getter
     private int top = -1;
     private int evenCount;
     private int oddCount;
