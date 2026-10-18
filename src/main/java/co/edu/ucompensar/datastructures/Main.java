@@ -27,6 +27,7 @@ public class Main {
             7. Contar pares e impares (guía)
             0. Volver""";
 
+    /** Shows the main menu until the user exits. */
     public static void main(String[] args) {
         int option;
         do {

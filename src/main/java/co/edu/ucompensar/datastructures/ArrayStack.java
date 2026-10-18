@@ -2,18 +2,16 @@ package co.edu.ucompensar.datastructures;
 
 import java.io.PrintStream;
 import java.util.Random;
-import lombok.Getter;
 
 /** Exercise 3: LIFO stack on a fixed-size array, built from the guide's PrimeraPila. */
-@Getter
 public class ArrayStack {
 
-    @Getter(lombok.AccessLevel.NONE)
     private final int[] elements;
     private int top = -1;
     private int evenCount;
     private int oddCount;
 
+    /** Empty stack with a fixed capacity. */
     public ArrayStack(int capacity) {
         if (capacity <= 0) {
             throw new IllegalArgumentException("El tamaño de la pila debe ser mayor que cero.");
@@ -21,18 +19,27 @@ public class ArrayStack {
         elements = new int[capacity];
     }
 
+    /** Index of the element on the top; -1 when empty. */
+    public int getTop() {
+        return top;
+    }
+
+    /** Maximum number of elements. */
     public int getCapacity() {
         return elements.length;
     }
 
+    /** Number of elements stored. */
     public int getSize() {
         return top + 1;
     }
 
+    /** True when there is nothing to pop. */
     public boolean isEmpty() {
         return top == -1;
     }
 
+    /** True when there is no room to push. */
     public boolean isFull() {
         return top == elements.length - 1;
     }

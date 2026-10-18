@@ -12,6 +12,7 @@ public class UtilitySubsidyCensus {
 
     private final Family[] families;
 
+    /** Census for the given number of families. */
     public UtilitySubsidyCensus(int size) {
         if (size <= 0) {
             throw new IllegalArgumentException("La cantidad de familias debe ser mayor que cero.");
@@ -19,10 +20,7 @@ public class UtilitySubsidyCensus {
         families = new Family[size];
     }
 
-    public int size() {
-        return families.length;
-    }
-
+    /** Stores a family at a position. */
     public void setFamily(int index, Family family) {
         families[index] = family;
     }
@@ -39,6 +37,7 @@ public class UtilitySubsidyCensus {
         return totals;
     }
 
+    /** Prints the total to pay per utility. */
     public void printTotals(PrintStream out) {
         BigDecimal[] totals = totalsToPay();
         out.println();
