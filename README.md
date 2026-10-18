@@ -1,4 +1,4 @@
-# Estructura de Datos — Actividad de Contextualización
+# Estructura de Datos: Actividad de Contextualización
 
 Fundación Universitaria Compensar · Ciencia de Datos · Estructura de Datos 2314-2A · Wilson Romero Carrasco
 
@@ -16,7 +16,7 @@ Requiere JDK 21 o superior (NetBeans 31 trabaja con JDK 21, 25 y 27) y Maven.
 
 ```bash
 mvn package
-java -jar target/data-structures-contextualization-1.1.0.jar
+java -jar target/data-structures-contextualization-1.1.1.jar
 ```
 
 En NetBeans: *File → Open Project* sobre esta carpeta y *Run*.
