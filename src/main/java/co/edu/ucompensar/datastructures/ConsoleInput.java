@@ -13,6 +13,7 @@ public class ConsoleInput {
     final PrintStream OUT = new PrintStream(System.out, true, StandardCharsets.UTF_8);
     private final Scanner KEYBOARD = new Scanner(System.in, StandardCharsets.UTF_8);
 
+    /** Reads an integer between min and max. */
     public int readInt(String prompt, int min, int max) {
         while (true) {
             OUT.print(prompt);
@@ -28,10 +29,12 @@ public class ConsoleInput {
         }
     }
 
+    /** Reads any integer. */
     public int readInt(String prompt) {
         return readInt(prompt, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
+    /** Reads an amount of money, zero or more. */
     public BigDecimal readAmount(String prompt) {
         while (true) {
             OUT.print(prompt);
