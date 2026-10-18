@@ -1,6 +1,7 @@
 package co.edu.ucompensar.datastructures;
 
 import java.io.PrintStream;
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import lombok.experimental.UtilityClass;
@@ -33,12 +34,12 @@ public class ConsoleInput {
         return readInt(prompt, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    public double readAmount(String prompt) {
+    public BigDecimal readAmount(String prompt) {
         while (true) {
             OUT.print(prompt);
             try {
-                double value = Double.parseDouble(KEYBOARD.nextLine().trim().replace(",", "."));
-                if (value >= 0) {
+                BigDecimal value = new BigDecimal(KEYBOARD.nextLine().trim().replace(",", "."));
+                if (value.signum() >= 0) {
                     return value;
                 }
             } catch (NumberFormatException e) {

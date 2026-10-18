@@ -1,6 +1,8 @@
 package co.edu.ucompensar.datastructures;
 
 import java.io.PrintStream;
+import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.Locale;
 
 /**
@@ -31,18 +33,19 @@ public class UtilitySubsidyCensus {
     }
 
     /** Total to pay per utility over all families. */
-    public double[] totalsToPay() {
-        double[] totals = new double[Utility.values().length];
+    public BigDecimal[] totalsToPay() {
+        BigDecimal[] totals = new BigDecimal[Utility.values().length];
+        Arrays.fill(totals, BigDecimal.ZERO);
         for (Family family : families) {
             for (Utility utility : Utility.values()) {
-                totals[utility.ordinal()] += family.toPay(utility);
+                totals[utility.ordinal()] = totals[utility.ordinal()].add(family.toPay(utility));
             }
         }
         return totals;
     }
 
     public void printTotals(PrintStream out) {
-        double[] totals = totalsToPay();
+        BigDecimal[] totals = totalsToPay();
         out.println();
         out.println("=== Total a pagar discriminado por servicio público ===");
         for (Utility utility : Utility.values()) {
